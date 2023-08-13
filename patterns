@@ -1,0 +1,107 @@
+1)  Right angle triangle (*)
+  
+  #include <stdio.h>
+  #define max 5
+  
+  int main() {
+      int i , j ;  
+      for (i = 1 ; i <= max ; i ++)
+      {
+          for (j = 1 ; j <= i ; j++)
+          {
+              printf("*");
+          }
+          printf("\n");
+      }
+  
+      return 0;
+  }
+  output
+  *
+  **
+  ***
+  ****
+  *****
+
+
+2)  Right down pyramid 
+  
+  #include <stdio.h>
+  #define max 5
+  
+  int main() {
+      int i , j ;  
+      for (i = 1 ; i <= max ; i ++)
+      {
+          for (j = max ; j >= i ; j--)
+          {
+              printf("*");
+          }
+          printf("\n");
+      }
+  
+      return 0;
+  }
+  output 
+  *****
+  ****
+  ***
+  **
+  *
+
+3) left half pyramid 
+  #include <stdio.h>
+  #define max 5
+  
+  int main() {
+      int i , j ;  
+      for (i = 0 ; i <= max ; i ++)
+      {
+          for (j = max ; j >= i ; j--)
+          {
+              printf(" ");
+          }
+          for (j = 1 ; j <= i ; j++)
+          {
+              printf("*");
+          }
+          printf("\n");
+          
+      }
+      return 0;
+  }
+  otutput 
+       *
+      **
+     ***
+    ****
+   *****
+
+4) Full pyramid 
+  #include <stdio.h>
+  #define max 5
+  
+  int main() {
+      int i , j ;  
+      for (i = 0 ; i <= max ; i ++)
+      {
+          for (j = max ; j >= i ; j--)
+          {
+              printf(" ");
+          }
+          for (j = 1 ; j <= i ; j++)
+          {
+              printf(" *");
+          }
+          printf("\n");
+          
+      }
+      return 0;
+  }
+  output 
+        *
+       * *
+      * * *
+     * * * *
+    * * * * *
+
