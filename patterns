@@ -167,5 +167,35 @@
          * *
           *
 
+7) Rhombus 
+    #include <stdio.h>
+    #define max 5
+    
+    int main() {
+        int i , j ;  
+        for (i = 1 ; i <= max ; i ++)
+        {
+            for(j = max ; j>=i ; j--)
+            {
+                printf(" ");
+            }
+            for(j = 1  ; j<= max ; j++)
+            {
+                printf("*" );
+            }
+            printf("\n");
+        }
+            
+        
+        return 0;
+    }
+    output
+         *****
+        *****
+       *****
+      *****
+     *****
+
+
 
   
