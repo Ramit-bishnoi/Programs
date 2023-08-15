@@ -50,58 +50,122 @@
   *
 
 3) left half pyramid 
-  #include <stdio.h>
-  #define max 5
-  
-  int main() {
-      int i , j ;  
-      for (i = 0 ; i <= max ; i ++)
-      {
-          for (j = max ; j >= i ; j--)
-          {
-              printf(" ");
-          }
-          for (j = 1 ; j <= i ; j++)
-          {
-              printf("*");
-          }
-          printf("\n");
-          
-      }
-      return 0;
-  }
-  otutput 
-       *
-      **
-     ***
-    ****
-   *****
+    #include <stdio.h>
+    #define max 5
+    
+    int main() {
+        int i , j ;  
+        for (i = 0 ; i <= max ; i ++)
+        {
+            for (j = max ; j >= i ; j--)
+            {
+                printf(" ");
+            }
+            for (j = 1 ; j <= i ; j++)
+            {
+                printf("*");
+            }
+            printf("\n");
+            
+        }
+        return 0;
+    }
+    otutput 
+         *
+        **
+       ***
+      ****
+     *****
 
-4) Full pyramid 
-  #include <stdio.h>
-  #define max 5
-  
-  int main() {
-      int i , j ;  
-      for (i = 0 ; i <= max ; i ++)
-      {
-          for (j = max ; j >= i ; j--)
-          {
-              printf(" ");
-          }
-          for (j = 1 ; j <= i ; j++)
-          {
-              printf(" *");
-          }
-          printf("\n");
-          
-      }
-      return 0;
-  }
-  output 
-        *
-       * *
-      * * *
-     * * * *
-    * * * * *
+4) Inverted Left Half Pyramid 
+    #include <stdio.h>
+    #define max 5
+    
+    int main() {
+        int i , j ;  
+        for (i = 0 ; i <= max ; i ++)
+        {
+            for (j = 1 ; j <= i ; j++)
+            {
+                printf(" ");
+            }
+            
+            for (j = max ; j >= i ; j--)
+            {
+                printf("*");
+            }
+            printf("\n");
+    
+            
+        }
+        return 0;
+    }
+    output
+      ******
+       *****
+        ****
+         ***
+          **
+           *
 
+5) Full pyramid 
+    #include <stdio.h>
+    #define max 5
+    
+    int main() {
+        int i , j ;  
+        for (i = 0 ; i <= max ; i ++)
+        {
+            for (j = max ; j >= i ; j--)
+            {
+                printf(" ");
+            }
+            for (j = 1 ; j <= i ; j++)
+            {
+                printf(" *");
+            }
+            printf("\n");
+            
+        }
+        return 0;
+    }
+    output 
+          *
+         * *
+        * * *
+       * * * *
+      * * * * *
+
+6) Inverted Full Pyramid
+    #include <stdio.h>
+    #define max 5
+    
+    int main() {
+        int i , j ;  
+        for (i = 0 ; i <= max ; i ++)
+        {
+            for (j = 1 ; j <= i ; j++)
+            {
+                printf(" ");
+            }
+            
+            for (j = max ; j >= i ; j--)
+            {
+                printf(" *");
+            }
+            printf("\n");
+    
+            
+        }
+        return 0;
+    }
+    output
+     * * * * * *
+      * * * * *
+       * * * *
+        * * *
+         * *
+          *
+
+
+  
