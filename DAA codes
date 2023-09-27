@@ -1,385 +1,116 @@
 
-#include <stdio.h>
-
-int binarySearch(int arr[], int low, int high, int target) {
-    while (low <= high) {
-        int mid = low + (high - low) / 2;
-
-        if (arr[mid] == target) {
-            return mid;
-        }
-
-        if (arr[mid] < target) {
-            low = mid + 1;
-        } else {
-            high = mid - 1;        }   }
-
-    return -1;
-}
-
-int main() {
-    int arr[] = {11, 12, 22, 25, 34, 64, 90};
-    int n = sizeof(arr) / sizeof(arr[0
-#include <stdio.h>
+// Bubble sort
 
 
-void bubbleSort(int arr[], int n) {
-    int temp;
-    int swapped;
+ #include<stdio.h>
+ int main(){
+     int i,j,temp,n,flag=0;
+     printf("Enter the length of array:");
+     scanf("%d",&n);
+     int a[n];
+     printf("Enter  integers: ");
+     for(int i = 0; i < n; i++) {
+         scanf("%d", &a[i]);
+     }
+     printf("original array:");
+     for ( i = 0; i < n; i++)
+     {
+         printf("%d ",a[i]);
+     }
+     printf("\n");
+    
+    for ( i = 0; i < n-1; i++)
+     {
+         for ( j = 0; j < n-i-1; j++)
+         {
+             if (a[j]>a[j+1])
+             {
+                 temp=a[j];
+                 a[j]=a[j+1];
+                 a[j+1]=temp;
+                 flag++;
+             }  
+         }
+     }
+     printf("number of tym swapping occured:%d\n",flag);
+     printf("sorted array:");
+     for ( i = 0; i < n; i++)
+     {
+         printf("%d ",a[i]);
+     }
+    
+ }
 
-    for (int i = 0; i < n - 1; i++) {
-        swapped = 0;
-        for (int j = 0; j < n - 1 - i; j++) {
+output:-
+        Enter the length of array:5
+        Enter  integers: 2
+        4
+        5
+        6
+        1
+        original array:2 4 5 6 1 
+        number of tym swapping occured:4
+        sorted array:1 2 4 5 6 
 
-            if (arr[j] > arr[j + 1]) {
-                temp = arr[j];
-                arr[j] = arr[j + 1];
-                arr[j + 1] = temp;
-                swapped = 1;
-        }
 
+//selection sorting
 
-        if (swapped == 0) {
-            break;
-        }
-    }
-}
-
-int main() {
-    int arr[] = {64, 34, 25, 12, 22, 11, 90};
-    int n = sizeof(arr) / sizeof(arr[0]);
-
-    printf("Original Array: ");
-    for (int i = 0; i < n; i++) {
-        printf("%d ", arr[i]);
-    }
-
-    bubbleSort(arr, n);
-
-    printf("\nSorted Array: ");
-    for (int i = 0; i < n; i++) {
-        printf("%d ", arr[i]);
-    }
-
-    return 0;
-}
-#include <stdio.h>
-void insertionSort(int arr[], int n) {
-    int i, key, j;
-    for (i = 1; i < n; i++) {
-        key = arr[i];
-        j = i - 1;
-
-       while (j >= 0 && arr[j] > key) {
-            arr[j + 1] = arr[j];
-            j = j - 1;
-        }
-        arr[j + 1] = key;
-}
-}
-
-int main() {
-    int arr[] = {64, 34, 25, 12, 22, 11, 90};
-    int n = sizeof(arr) / sizeof(arr[0
-int main() {
-    int arr[] = {64, 34, 25, 12, 22, 11, 90};
-    int n = sizeof(arr) / sizeof(arr[0]);
-    int target = 22;
-
-   int result = linearSearch(arr, n, target);
-
-    if (result != -1) {
-        printf("%d found at index %d", target, result);
-    } else {
-        printf("%d not found in the array", target);
-    }
-
-    return 0;
-}
-#include<stdio.h>
-
-int main()
-{
-    int i,j, k;
-    for(i=1;i<=5;i++){
-       for(j=1;j<i+1;j++)
-        printf("%c",i+64);
-        printf("\n");
-    }
-    printf("____________\n");
-
-        for(i=1;i<=5;i++){
-        for(j=1;j<i+1;j++)
-        printf("%c",j+64);
-        printf("\n");
-    }
-    printf("____________\n");
-
-    for(i=1;i<=5;i++){
-        for(j=1;j<=5;j++)
-        printf("%c",i+64);
-        printf("\n");
-    }
-    printf("____________\n");
-
-    for(i=1;i<=5;i++){
-        for(j=1;j<=5;j++)
-        printf("%c",j+64);
-        printf("\n");
-    }
-
-}
-#include<stdio.h>
-int main()
-
-    int i,j,k=0;
-    for(i=1;i<=5;i++){
-        for(j=1;j<i+1;j++)
-        printf("*");
-        printf("\n");
-    }
-    printf("____________\n");
-
-    for(i=1;i<=5;i++){
-        for(j=1;j<i+1;j++)
-        printf("\n");
-    }
-    printf("____________\n");
-
-       for(i=1;i<=5;i++){
-       for(j=1;j<i+1;j++)
-       printf("%d",j);
-       printf("\n");
-   }
-    printf("____________\n");
-
-    for(i=1;i<=5;i++){
-        for(j=1;j<i+1;j++)
-        printf("%d ",k++);
-          printf("\n");
-    }
-
-}
 #include<stdio.h>
 int main(){
-    int i,j;
-    for(i=1;i<=5;i++){
-        for(j=1;j<=5;j++)
-        printf("%d ",i);
-        printf("\n");
-    }
-    printf("___________________\n");
+    int n,i,j,min,temp;
+    printf("enter the size of array:");
+    scanf("%d",&n);
+    int arr[n];
 
-    for(i=1;i<=5;i++){
-        for(j=1;j<=5;j++)
-        printf("%d ",j);
-        printf("\n");
-    }
-    printf("___________________\n");
-
-    int k=0;
-     for(i=1;i<=5;i++){
-        for(j=1;j<=5;j++)
-        printf("%d\t",k++);
-        printf("\n");
-    }
-    printf("___________________\n");
-     for(i=1;i<=5;i++){
-        for(j=1;j<=5;j++)
-        printf("%c ",i+64);
-        printf("\n");}
-}
-#include<stdio.h>
-
-int main()
-{
-    int i,j, k;
-    for(i=1;i<=5;i++){
-        for(j=1;j<i+1;j++)
-        printf("%c",i+64);
-        printf("\n");
-    }
-    printf("____________\n");
-
-    for(i=1;i<=5;i++){
-        for(j=1;j<i+1;j++)
-        printf("%c",j+64);
-        printf("\n");
-    }
-    printf("____________\n");
-
-    for(i=1;i<=5;i++){
-        for(j=1;j<=5;j++)
-        printf("%c",i+64);
-        printf("\n");
-    }
-    printf("____________\n");
-
-    for(i=1;i<=5;i++){
-        for(j=1;j<=5;j++)
-        printf("%c",j+64);
-        printf("\n");
+    printf("Enter the elements of array:\n");
+    for ( i = 0; i < n; i++)
+    {
+        scanf("%d",&arr[i]);
     }
 
-}
-#include<stdio.h>
-
-int main()
-{
-    int i,j, k;
-    for(i=1;i<=5;i++){
-        for(j=5;j>i-1;j--)
-//        printf(" ");
-//
-//        for(j=1;j<i+1;j++)
-//        printf("*");
-//
-//        printf("\n");
-//    }
-//
-//    printf("_____________\n");
-//
-//    for(i=1;i<=5;i++){
-//        for(j=5;j>i-1;j--)
-//        printf(" ");
-//
-//        for(j=1;j<i+1;j++)
-//        printf("%d",i);
-//
-//        printf("\n");
-//    }
-//    printf("_____________\n");
-//
-//    for(i=1;i<=5;i++){
-//        for(j=5;j>i-1;j--)
-//        printf(" ");
-//
-//        for(j=1;j<i+1;j++)
-//        printf("%d",j);
-//
-//        printf("\n");
-//    }
-//
-//    printf("_____________\n");
-//
-//    for(i=1;i<=5;i++){
-//        for(j=5;j>i-1;j--)
-//        printf(" ");
-//
-//        for(j=1;j<i+1;j++)
-//        printf("%c",i+64);
-//
-//        printf("\n");
-//    }
-//    printf("_____________\n");
-//
-//    for(i=1;i<=5;i++){
-//        for(j=5;j>i-1;j--)
-//        printf(" ");
-//
-//        for(j=1;j<i+1;j++)
-//        printf("%c",j+64);
-//
-//        printf("\n");
-//    }
-}
-#include <stdio.h>
-//int main()
-//{
-//    int i,j,k;
-//    for(i=1;i<=5;i++)
-//    {
-//        for(k=5;k>i-1;k--)
-//        printf(" ");
-//
-//        for(j=1;j<i+1;j++)
-//        printf("*");
-//
-//       for(j=2;j<i+1;j++)
-//       printf("*");
-//
-//        printf("\n");
-//    }
-//   printf("_______________________\n");
- }
-#include<stdio.h>
-
-int main()
-{
-    int i,j, k=0;
-    for(i=1;i<=5;i++){
-      for(j=5;j>i-1;j--)
-        printf("*");
-        printf("\n");
+    printf("original array:");
+    for ( i = 0; i < n; i++)
+    {
+        printf("%d ",arr[i]);
     }
-    printf("_________________\n");
-    for(i=1;i<=5;i++){
-        for(j=5;j>i-1;j--)
-        printf("%d",i);
-        printf("\n");
-    }
-    printf("_________________\n");
-
-    for(i=1;i<=5;i++){
-        for(j=5;j>i-1;j--)
-        printf("%d",j);
-        printf("\n");
-    }
-    printf("_________________\n");
-
-    for(i=1;i<=5;i++){
-        for(j=5;j>i-1;j--)
-        printf("%d\t",k++);
-        printf("\n");
-    }
-    printf("_________________\n");
-
-    for(i=1;i<=5;i++){
-        for(j=5;j>i-1;j--)
-        printf("%c",i + 64);
-        printf("\n");
-    }
-    printf("_________________\n");
-
-    for(i=1;i<=5;i++){
-        for(j=5;j>i-1;j--)
-        printf("%c",j + 64);
-        printf("\n");
-    }
-}
-#include <stdio.h>
-
-void selectionSort(int arr[], int n) {
-    int i, j, minIndex, temp;
-
-    for (i = 0; i < n - 1; i++) {
-        minIndex = i;
-        for (j = i + 1; j < n; j++) {
-            if (arr[j] < arr[minIndex]) {
-                minIndex = j;
+    printf("\n");
+    
+    for ( i = 0; i < n-1; i++)
+    {
+        min=i;
+        for ( j = i+1 ; j < n; j++)
+        {
+            if (arr[j]<arr[min])
+            {
+                min=j;
             }
+            
         }
-        temp = arr[minIndex];
-        arr[minIndex] = arr[i];
-        arr[i] = temp;
+        if (min!=i)
+        {
+            temp=arr[i];
+            arr[i]=arr[min];
+            arr[min]=temp;
+        }
+        
     }
+    
+    printf("sorted array:\n");
+    for ( i = 0; i < n; i++)
+    {
+        printf("%d ",arr[i]);
+    }
+
 }
 
-int main() {
-    int arr[] = {64, 34, 25, 12, 22, 11, 90};
-    int n = sizeof(arr) / sizeof(arr[0]);
-
-    printf("Original Array: ");
-    for (int i = 0; i < n; i++) {
-        printf("%d ", arr[i]);
-    }
-
-    selectionSort(arr, n);
-
-    printf("\nSorted Array: ");
-    for (int i = 0; i < n; i++) {
-        printf("%d ", arr[i]);
-    }
-
-    return 0;
-}
+output :- 
+        enter the size of array:5
+        Enter the elements of array:
+        1
+        6
+        3
+        9
+        4
+        original array:1 6 3 9 4 
+        sorted array:
+        1 3 4 6 9 
