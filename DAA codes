@@ -238,3 +238,87 @@ output :-
         
         Sorted array is 
         5 11 20 26 36 70 
+
+matrix into spiral 
+#include <stdio.h>
+
+int spiral(int m , int n , int arr[m][n])
+{
+    int left = 0 , right = n -1 , top = 0 , bottom = m-1 ;
+    int dir = 0 ;//right = 0 , down = 1 , left = 2 , up = 3
+    
+    int res[m*n];
+    int count = 0 ;
+    
+    while(left <= right && top <= bottom)
+    {
+        if(dir == 0 )
+        {
+            for(int i = left ; i <= right ; i ++)
+            {
+                res[count++] = arr[top][i];
+            }
+            top++;
+        }
+        else if(dir == 1)
+        {
+            for(int i = top ; i <= bottom ; i++)
+            {
+                res[count++]=arr[i][right];
+            }
+            right--;
+        }
+        else if(dir == 2)
+        {
+            for(int i = right ;  i >= left ; i--)
+            {
+                res[count++]=arr[bottom][i];
+            }
+            bottom -- ;
+        }
+        else if(dir == 3)
+        {
+            for(int i = bottom ; i >= top ; i--)
+            {
+                res[count++]=arr[i][left];
+            }
+            left++;
+        }
+        
+        dir = (dir+1) % 4 ;
+    }
+    printf("The spiral form is : ");
+    for(int i = 0 ; i <= m*n ; i++)
+    {
+        printf(" %d ", res[i]);
+    }
+    
+}
+int main()
+{   int m , n , i , j  ;
+    printf("enter rows of matrix ");
+    scanf("%d",&m );
+    printf("enter column of matrix ");
+    scanf("%d" , &n);
+    int arr[m][n]  ;
+    printf("enter elements in matrix\n");
+    for(i = 0 ; i < m ; i++)
+    {
+        for(j = 0 ; j < n ; j++)
+        {       
+                scanf("%d" , &arr[i][j]);
+        }
+    }
+    printf("the matrix is : \n" );
+    for(i = 0 ; i < m ; i++)
+    {
+        for(j = 0 ; j < n ; j++)
+        {
+            printf(" %d " , arr[i][j]);
+        }
+        printf("\n");
+    }
+    
+    spiral(m , n , arr);
+    
+}
