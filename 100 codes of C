@@ -1,0 +1,106 @@
+1)Sum of Two Numbers:
+  #include <stdio.h>
+  int main() {
+      int a = 5, b = 7;
+      int sum = a + b;
+      printf("Sum of %d and %d is %d\n", a, b, sum);
+      return 0;
+  }
+
+2)Fibonacci Series:
+  #include <stdio.h>
+  int main() {
+      int n = 10, t1 = 0, t2 = 1, nextTerm;
+      printf("Fibonacci Series: ");
+      for (int i = 1; i <= n; ++i) {
+          printf("%d, ", t1);
+          nextTerm = t1 + t2;
+          t1 = t2;
+          t2 = nextTerm;
+      }
+      return 0;
+  }
+3) Factorial 
+  #include <stdio.h>
+  int main() {
+      int n, fact = 1;
+      printf("Enter a positive integer: ");
+      scanf("%d", &n);
+      for (int i = 1; i <= n; i++) {
+          fact *= i;
+      }
+      printf("Factorial: %d\n", fact);
+      return 0;
+  }
+4)palindrome
+  #include <stdio.h>
+  #include <stdbool.h>
+  #include <string.h>
+  bool isPalindrome(char *str) {
+      int len = strlen(str);
+      for (int i = 0; i < len / 2; i++) {
+          if (str[i] != str[len - i - 1]) {
+              return false;
+          }
+      }
+      return true;
+  } int main() {
+      char str[100];
+      printf("Enter a string: ");
+      scanf("%s", str);
+      if (isPalindrome(str)) {
+          printf("Palindrome\n");
+      } else {
+          printf("Not a Palindrome\n");
+      }
+      return 0;
+  }
+5) sum of array elements 
+  #include <stdio.h>
+  int main() {
+      int n, sum = 0;
+      printf("Enter the number of elements: ");
+      scanf("%d", &n);
+      int arr[n];
+      printf("Enter %d elements: ", n);
+      for (int i = 0; i < n; i++) {
+          scanf("%d", &arr[i]);
+          sum += arr[i];
+      }
+      printf("Sum: %d\n", sum);
+      return 0;
+  }
+  swap two numbers #include <stdio.h>
+  int main() {
+      int a, b, temp;
+      printf("Enter two numbers: ");
+      scanf("%d %d", &a, &b);
+      temp = a;
+      a = b;
+      b = temp;
+      printf("Swapped Numbers: %d %d\n", a, b);
+      return 0;
+  }
+6)prime number 
+  #include <stdio.h>
+  #include <stdbool.h>
+  int isPrime(int num) {
+      if (num <= 1)
+          return false;
+      for (int i = 2; i * i <= num; i++) {
+          if (num % i == 0)
+              return false;
+      }
+      return true;
+  }
+  int main() {
+      int num;
+      printf("Enter a positive integer: ");
+      scanf("%d", &num);
+      if (isPrime(num)) {
+          printf("Prime\n");
+      } else {
+          printf("Not Prime\n");
+      }
+      return 0;
+  }
