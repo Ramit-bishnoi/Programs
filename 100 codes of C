@@ -586,45 +586,1028 @@
        *****
       *****
      *****
+27) diamond 
+  #include <stdio.h> 
+  int main() 
+  { 
+  	int n = 5; 
+  
+  	for (int i = 0; i < 2 * n - 1; i++) { 
+  
+  		
+  		int comp; 
+  		if (i < n) { 
+  			comp = 2 * (n - i) - 1; 
+  		} 
+  		else { 
+  			comp = 2 * (i - n + 1) + 1; 
+  		} 
+  
+  		for (int j = 0; j < comp; j++) { 
+  			printf(" "); 
+  		} 
+  
+  		for (int k = 0; k < 2 * n - comp; k++) { 
+  			printf("%d ", k + 1); 
+  		} 
+  		printf("\n"); 
+  	} 
+  	return 0; 
+  }
+output: 
+         1 
+       1 2 3 
+     1 2 3 4 5 
+   1 2 3 4 5 6 7 
+ 1 2 3 4 5 6 7 8 9 
+   1 2 3 4 5 6 7 
+     1 2 3 4 5 
+       1 2 3 
+         1 
 
+28) Hourglass 
+  #include <stdio.h> 
+  int main() 
+  { 
+  	int rows = 5; 
+  
+  	for (int i = 0; i < 2 * rows - 1; i++) { 
+  
+  		int comp; 
+  		if (i < rows) { 
+  			comp = 2 * i + 1; 
+  		} 
+  		else { 
+  			comp = 2 * (2 * rows - i) - 3; 
+  		} 
+  
+  		for (int j = 0; j < comp; j++) { 
+  			printf(" "); 
+  		} 
+  
+  		for (int k = 0; k < 2 * rows - comp; k++) { 
+  			printf("%d ", k + 1); 
+  		} 
+  		printf("\n"); 
+  	} 
+  	return 0; 
+  }
+output :
+   1 2 3 4 5 6 7 8 9 
+     1 2 3 4 5 6 7 
+       1 2 3 4 5 
+         1 2 3 
+           1 
+         1 2 3 
+       1 2 3 4 5 
+     1 2 3 4 5 6 7 
+   1 2 3 4 5 6 7 8 9 
 
+29) Hollow square
+  #include <stdio.h> 
+  
+  int main() 
+  { 
+  	int rows = 5; 
+  
+  	for (int i = 0; i < rows; i++) { 
+  
+  		for (int j = 0; j < rows; j++) { 
+  			if (i > 0 && i < rows - 1 && j > 0 
+  				&& j < rows - 1) { 
+  				printf(" "); 
+  			} 
+  			else { 
+  				printf("%d ", j + 1); 
+  			} 
+  		} 
+  		printf("\n"); 
+  	} 
+  	return 0; 
+  }
+output :
+  1 2 3 4 5 
+  1    5 
+  1    5 
+  1    5 
+  1 2 3 4 5
 
+11) Hollow pyramid
+  #include <stdio.h> 
+  
+  int main() 
+  { 
+  	int rows = 5; 
+  
+  	for (int i = 0; i < rows; i++) { 
+  
+  		for (int j = 0; j < 2 * (rows - i) - 1; j++) { 
+  			printf(" "); 
+  		} 
+  
+  		for (int k = 0; k < 2 * i + 1; k++) { 
+  			if (k == 0 || k == 2 * i || i == rows - 1) { 
+  				printf("%d ", k + 1); 
+  			} 
+  			else { 
+  				printf(" "); 
+  			} 
+  		} 
+  		printf("\n"); 
+  	} 
+  	return 0; 
+  }
 
+output :
+          1          
+        1   3        
+      1       5       
+    1           7     
+  1 2 3 4 5 6 7 8 9 
 
+30)inverted hollow pramid
+
+  #include <stdio.h> 
+  
+  int main() 
+  { 
+  	int rows = 5; 
+  
+  	for (int i = 0; i < rows; i++) { 
+  
+  		for (int j = 0; j < 2 * i + 1; j++) { 
+  			printf(" "); 
+  		} 
    
+  		for (int k = 0; k < 2 * (rows - i) - 1; k++) { 
+  			if (k == 0 || k == 2 * (rows - i) - 2 || i == 0) 
+  				printf("%d ", k + 1); 
+  			else { 
+  				printf(" "); 
+  			} 
+  		} 
+  		printf("\n"); 
+  	} 
+  	return 0; 
+  }
+output :
+ 1 2 3 4 5 6 7 8 9 
+   1           7 
+     1       5 
+       1   3 
+         1 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-               
-
-
-
-
-
-
-
-
-
-
-
-
+31)hollow diamond 
  
+  #include <stdio.h> 
+  int main() 
+  { 
+  	int n = 5; 
+  
+  	for (int i = 0; i < 2 * n - 1; i++) { 
+  
+  		int comp; 
+  		if (i < n) { 
+  			comp = 2 * (n - i) - 1; 
+  		} 
+  		else { 
+  			comp = 2 * (i - n + 1) + 1; 
+  		} 
+  
+      for (int j = 0; j < comp; j++) { 
+  			printf(" "); 
+  		} 
+  
+  		for (int k = 0; k < 2 * n - comp; k++) { 
+  			if (k == 0 || k == 2 * n - comp - 1) { 
+  				printf("%c ", k + 'A'); 
+  			} 
+  			else { 
+  				printf(" "); 
+  			} 
+  		} 
+  		printf("\n"); 
+  	} 
+  	return 0; 
+  }
+output : 
+         1 
+       1    3 
+     1        5 
+   1             7 
+ 1                9 
+   1            7 
+     1        5 
+       1    3 
+         1 
+
+32)hollow hourglass
+  #include <stdio.h> 
+  int main() 
+  { 
+  	int n = 5; 
+  
+  	for (int i = 0; i < 2 * n - 1; i++) { 
+  
+  		int comp; 
+  		if (i < n) { 
+  			comp = 2 * i + 1; 
+  		} 
+  		else { 
+  			comp = 2 * (2 * n - i) - 3; 
+  		} 
+  
+  		for (int j = 0; j < comp; j++) { 
+  			printf(" "); 
+  		} 
+  
+  	
+  		for (int k = 0; k < 2 * n - comp; k++) { 
+  			if (k == 0 || k == 2 * n - comp - 1 || i == 0 
+  				|| i == 2 * n - 2) { 
+  				printf("%d ", k + 1); 
+  			} 
+  			else { 
+  				printf(" "); 
+  			} 
+  		} 
+  		printf("\n"); 
+  	} 
+  	return 0; 
+  }
+output : 
+ 1 2 3 4 5 6 7 8 9 
+   1           7 
+     1       5 
+       1   3 
+         1 
+       1   3 
+     1       5 
+   1           7 
+ 1 2 3 4 5 6 7 8 9 
+
+33)Floyd triangle
+  #include <stdio.h> 
+  
+  int main() 
+  { 
+  	int rows = 4; 
+  	char n = 'A'; 
+  
+  	for (int i = 0; i < rows; i++) { 
+  
+  		for (int j = 0; j <= i; j++) { 
+  			printf("%c ", n++); 
+  		} 
+  		printf("\n"); 
+  	} 
+  	return 0; 
+  }
+output :
+      A 
+      B C 
+      D E F 
+      G H I J 
+
+34) pascal triangle 
+  #include <stdio.h> 
+  
+  int main() 
+  { 
+  	int rows = 5; 
+  
+  	for (int i = 1; i <= rows; i++) { 
+  
+  		for (int j = 0; j < rows - i; j++) { 
+  			printf(" "); 
+  		} 
+  
+  		int C = 1;  
+  
+  		for (int k = 1; k <= i; k++) { 
+  			printf("%d ", C); 
+  			C = C * (i - k) / k; 
+  		} 
+  		printf("\n"); 
+  	} 
+  	return 0; 
+  }
+output:
+      1 
+     1 1 
+    1 2 1 
+   1 3 3 1 
+  1 4 6 4 1 
+
+
+35) while loop 
+#include<stdio.h>
+
+int main()
+{
+  
+    int i = 0;  // declaration and initialization at the same time
+
+    printf("\nPrinting numbers using while loop from 0 to 9\n\n");
+
+
+    while(i<10)
+    {
+        printf("%d\n",i);
+
+        i++;    // same as i=i+1;
+      }
+    
+    return 0;
+}
+
+36)
+#include<stdio.h>
+
+int main()
+{
+    printf("\n\n\t\tStudytonight - Best place to learn\n\n\n");
+
+    int i = 10;     
+
+    {
+        printf("i = %d\n",i);
+        i = i-1;    // updation
+    }
+    
+    while(i > 0);
+    
+    printf("\n\The value of i after exiting the loop is %d\n\n", i);
+    return 0;
+}
+
+37) do while 
+    #include<stdio.h>
+    
+    int main()
+    {
+    
+        
+        int i = 10;     
+    
+        do 
+        {
+            printf("i = %d\n",i);
+            i = i-1;    // updation
+        }
+        
+        while(i > 0);
+        
+        printf("\n\The value of i after exiting the loop is %d\n\n", i);
+        return 0;
+    }
+
+38) nested loop 
+    #include<stdio.h>
+    
+    int main()
+    {
+    
+        int i,j,k;
+        printf("\n\nOutput of the nested loop is :\n\n");
+        for(i = 0; i < 5; i++)
+        {
+            printf("\t\t\t\t");
+            for(j = 0; j < 5; j++)
+            printf("* ");
+    
+            printf("\n");
+        }
+        return 0;
+    }
+
+39)find Factorial of a Number using for loop
+    #include<stdio.h>
+    void main()
+    {
+       int i, n;
+       long int fact = 1;
+       printf("Enter the number: ");
+       scanf("%d" , &n);
+       for(i = 1; i <= n; i++)
+       {
+           fact = fact * i;
+       }
+       printf("Factorial of %d is %ld", n , fact);
+    }
+
+40)find Factorial of a Number using while loop
+    #include<stdio.h>
+    void main()
+    {
+       int n;
+       long int fact = 1;
+       printf("Enter the number: ");
+       scanf("%d" , &n);
+       int i = n;
+       while(i) {
+           fact = fact * i;
+           i--;
+       }
+       printf("Factorial of %d is %ld", n , fact);
+    }
+
+41)Fibonacci Series
+    #include<stdio.h>
+    #include<conio.h>
+    
+    void fibonacci(int num);
+    void main()
+    {
+        int num = 0;
+        clrscr();
+        printf("Enter number of terms\t");
+        scanf("%d", &num);
+        fibonacci(num);
+        getch();
+    }
+    
+    void fibonacci(int num)
+    {
+       int a, b, c, i = 3;
+       a = 0;
+       b = 1;
+       if(num == 1)
+       printf("%d",a);
+    
+       if(num >= 2)
+       printf("%d\t%d",a,b);
+    
+       while(i <= num)
+       {
+          c = a+b;
+          printf("\t%d", c);
+          a = b;
+          b = c;
+          i++;
+       }
+    }
+
+42) check whether a Number is a Palindrome
+    #include<stdio.h>
+    #include<conio.h>
+    
+    void main()
+    {
+        int a, b, c, s = 0;
+        clrscr();
+        printf("Enter a number:\t");
+        scanf("%d", &a);
+        c = a;
+    
+       while(a > 0)
+       {
+          b = a%10;
+          s = (s*10)+b;
+          a = a/10;
+       }
+    
+       if(s == c)
+       {
+          printf("The number %d is a palindrome", c);
+       }
+       else
+       {
+          printf("The number %d is not a palindrome", c);
+       }
+      getch();
+    }
+
+43) Sum of Digits of a Number
+    #include<stdio.h>
+    
+    int main()
+    {
+    
+    	int n, sum = 0, c, remainder;
+    
+        	printf("Enter the number you want to add digits of:  ");
+        	scanf("%d", &n);
+    
+    	while(n != 0)
+        	{
+            	remainder = n%10;
+            	sum += remainder;
+            	n = n/10;
+        	}
+    
+        	printf("\n\nSum of the digits of the entered number is  =  %d\n\n", sum);
+        	return 0;
+    }
+
+44)Reverse a String by using the new character array
+    #include <stdio.h>
+    int main()
+    {
+      char str[1000], rev[1000];
+      int i, j, count = 0;
+      scanf("%s", str);
+      printf("\nString Before Reverse: %s", str);
+      while (str[count] != '\0')
+      {
+        count++;
+      }
+      j = count - 1;
+    
+      for (i = 0; i < count; i++)
+      {
+        rev[i] = str[j];
+        j--;
+      }
+    
+      printf("\nString After Reverse: %s", rev);
+    }
+
+45)Reverse a String by swapping the characters of the string
+    #include <stdio.h>
+    #include <string.h>
+    void reverseStr(char str[])
+    {
+      int n = strlen(str);
+    
+      for (int i = 0; i < n / 2; i++)
+      {
+        char ch = str[i];
+        str[i] = str[n - i - 1];
+        str[n - i - 1] = ch;
+      }
+    }
+    
+    int main()
+    {
+      char str[1000];
+      scanf("%s", str);
+      printf("\nString Before Reverse: %s", str);
+      reverseStr(str);
+      printf("\nString After Reverse: %s", str);
+      return 0;
+    }
+
+46) find average of N Numbers
+    #include<stdio.h>
+    
+    int main()
+    {
+    
+        int n, i;
+        float sum = 0, x;
+    
+        printf("Enter number of elements:  ");
+        scanf("%d", &n);
+        printf("\n\n\nEnter %d elements\n\n", n);
+        for(i = 0; i < n; i++)
+        {
+            scanf("%f", &x);
+            sum += x;
+        }
+        printf("\n\n\nAverage of the entered numbers is =  %f", (sum/n));
+        return 0;
+    }
+
+47)find Armstrong Number between 1 to 500
+    #include<stdio.h>
+    #include<math.h>
+    
+    int main()
+    {
+        int n,sum,i,t,a;
+        printf("\n\n\nThe Armstrong numbers in between 1 to 500 are : \n\n\n");
+    
+        for(i = 1; i <= 500; i++)
+        {
+            t = i;  // as we need to retain the original number
+            sum = 0;
+            while(t != 0)
+            {
+                a = t%10;
+                sum += a*a*a;
+                t = t/10;
+            }
+    
+            if(sum == i)
+            printf("\n\t\t%d", i);
+        }
+    
+        return 0;
+    }
+
+48) check whether a number is Armstrong Number
+#include<stdio.h>
+#include<math.h>
+
+int main()
+{
+
+    int n, sum = 0, c, t, a;
+
+    printf("Enter a number:  ");
+    scanf("%d", &n);
+
+    t = n;  // as need to retain the original number
+    while(n != 0)
+    {
+        a = n%10;
+        sum += a*a*a;
+        n = n/10;
+    }
+
+    printf("\n\n\n\t\t\tsum = %d", sum);
+
+    if(sum == t)
+        printf("\n\n\t\t%d is an armstrong number\n", t);
+    else
+        printf("\n\n\t\t%d is not an armstrong number\n", t);
+
+    return 0;
+}
+
+49) find Factors of a Number
+    #include<stdio.h>
+    
+    int main()
+    {
+        int  num, i;
+        printf("Enter the number to find the factors of :  ");
+        scanf("%d",&num);
+        printf("\n\n\nFactors of %d are \n\n", num);
+    
+        for(i = 1; i <= num/2; i++)
+        {
+            if(num%i == 0)
+                printf("\t\t%d\n", i);
+        }
+    
+        return 0;
+    }
+50)Sum of N input Numbers
+    #include<stdio.h>
+    
+    int main()
+    {
+        int n,sum=0,c,value;
+    
+        printf("\n\nEnter the number of integers you want to add:  ");
+        scanf("%d", &n);
+    
+        printf("Enter %d integers\n\n",n);
+        for(c = 1; c <= n; c++)
+        {
+            scanf("%d", &value);
+            
+            sum += value;
+        }
+    
+        printf("\n\n\nsum of entered numbers  = %d", sum);
+        return 0;
+    }
+
+61)find first N Prime Numbers
+    #include<stdio.h>
+    
+    int main()
+    {
+        int n,i = 3, count, c;
+    
+        printf("\nEnter the number of prime numbers required :  ");
+        scanf("%d", &n);
+    
+        if(n >= 1)
+        {
+            printf("\n\nFirst %d prime numbers are :  ", n);
+            printf("2 ");
+        }
+    
+        for(count = 2; count <= n; i++)  
+        {
+            // iteration to check c is prime or not
+            for(c = 2; c < i; c++)
+            {
+                if(i%c == 0)
+                    break;
+            }
+    
+            if(c == i)  // c is prime
+            {
+                printf("%d ", i);
+                count++;    
+            }
+    
+        }
+        return 0;
+    }
+
+62)find the Largest number among n input Numbers
+    #include<stdio.h>
+    
+    int main()
+    {
+        int n,i;
+        float c,big;
+    
+        printf("\n\nEnter the number of elements you wish to find the greatest element of: ");
+        scanf("%d", &n);
+        printf("\n\nEnter %d numbers :\n", n);
+    
+        printf("\n\n\tElement 1: ");
+    
+        scanf("%f", &big);
+    
+        for(i = 2; i <= n; i++)
+        {
+            printf("\n\t\t\tElement %d  : ", i);
+            scanf("%f", &c);
+
+            if(big < c)  
+                big = c;    // update big to the larger value
+        }
+    
+        printf("\n\n\nThe largest of the %d numbers is  %f ", n, big);
+        return 0;
+    }
+
+63)find exponential without using pow() method
+    #include<stdio.h>
+    int main()
+    {    
+        int n, exp, exp1;
+        long long int value = 1;
+    
+        printf("Enter the number and its exponential:\n\n");
+        scanf("%d%d",&n, &exp);
+    
+        exp1 = exp;   
+    
+        while(exp-- > 0)
+        {
+            value *= n; // multiply n to itself exp times
+        }
+    
+        printf("\n\n %d^%d = %lld\n\n", n, exp1, value);
+        return 0;
+    }
+
+64)if input Number is int or float
+    #include<stdio.h>
+    
+    #include<conio.h>
+    #include<string.h>
+    
+    int main()
+    {
+        char number[10];
+        int flag = 0;
+        int length, i = 0;
+    
+        printf("\n\nEnter a number: ");
+        scanf("%s", number);
+    
+        length = strlen(number);
+            while(number[i++] != '\0')   
+        {
+            if(number[i] == '.')    
+            {
+                flag = 1;
+                break;
+            }
+        }
+    
+        if(flag)
+            printf("\n\n\n\tEntered Number is a Floating point Number\n\n");
+        else
+            printf("\n\n\n\tEntered Number is a integer Number\n\n");
+    
+        return 0;
+    }
+               
+65)Multiplication Table
+    #include<stdio.h>
+
+    int main()
+    {
+        int n,i;
+    
+        printf("Enter an integer you need to print the table of: ");
+        scanf("%d", &n);
+        printf("\n\n\n");
+    
+        for(i = 1; i <= 10; i++)
+        {
+            printf("\n\t\t\t%d * %d   =   %d \n", n, i, n*i);
+        }
+    
+        return 0;
+    }
+
+66)reverse of an Array
+    #include<stdio.h>
+    
+    int main()
+    {
+    
+        int c, d, n, a[100], b[100];
+        printf("\n\nEnter number of elements in array :");
+        scanf("%d", &n);
+        printf("\n\nEnter %d elements\n", n);
+    
+        for(c = 0; c < n; c++)
+            scanf("%d", &a[c]);
+    
+      
+        for(c = n-1, d = 0; c >= 0; c--, d++)
+            b[d] = a[c];
+    
+    
+        for(c = 0; c < n; c++)
+            a[c] = b[c];
+    
+        printf("\n\n Resultant array is: ");
+        for(c = 0; c < n; c++)
+            printf("%d", a[c]);
+    
+        return 0;
+    }
+
+67)insert an element in an Array
+    #include<stdio.h>
+    
+    int main()
+    {
+        int array[100], position, c, n, value;
+    
+        printf("\n\nEnter number of elements in array:");
+        scanf("%d", &n);
+    
+        printf("\n\nEnter %d elements\n", n);
+        for(c = 0; c < n; c++)
+            scanf("%d", &array[c]);
+    
+        printf("\n\nEnter the location where you want to insert new element:  ");
+        scanf("%d", &position);
+    
+        printf("\n\nEnter the value to insert: ");
+        scanf("%d", &value);
+    
+        for(c = n-1; c >= position-1; c--)
+            array[c+1] = array[c];
+    
+        array[position - 1] = value;    
+    
+        printf("\n\nResultant array is: ");
+     
+        for(c = 0; c <= n; c++) 
+            printf("%d  ", array[c]);
+    
+        return 0;
+    }
+
+68)Delete an Element from Array 
+  #include<stdio.h>
+  
+  int main()
+  {
+  
+      int array[100], position, c, n;
+      printf("\n\nEnter number of elements in array:");
+      scanf("%d", &n);
+  
+      printf("\n\nEnter %d elements\n", n);
+      for(c = 0; c < n; c++)
+          scanf("%d", &array[c]);
+  
+      printf("\n\nEnter the location where you want to delete element from:  ");
+      scanf("%d", &position);
+  
+      if(position >= n+1)
+          printf("\n\nDeletion not possible\n\n");
+      else 
+          for(c = position-1; c < n-1; c++)
+          array[c] = array[c+1];
+  
+      printf("\n\nResultant array is: ");
+    
+      for(c = 0; c < n-1; c++) 
+          printf("%d  ", array[c]);
+  
+      return 0;
+  }
+
+69)Delete an element from array based on value
+    #include<stdio.h>
+    
+    int main()
+    {
+    
+        int array[10], element, c, n, pos;
+        
+        int found = 0; 
+        printf("\n\nEnter number of elements in array:");
+        scanf("%d", &n);
+    
+        printf("\n\nEnter %d elements\n", n);
+    
+        for(c = 0; c < n; c++)
+            scanf("%d", &array[c]);
+    
+        printf("\n\nThe input array is: ");
+        for(c = 0; c < n; c++)
+        printf("%d", array[c]);
+    
+        printf("\n\nEnter the element to be deleted: ");
+        scanf("%d", &element);
+    
+        for(c = 0; c < n; c++)
+        {
+            if(array[c] == element)
+            {
+                found = 1;
+                pos = c;
+                break;  // terminate the loop
+            }
+        }
+        if(found == 1) 
+        {
+            for(c = pos; c < n-1; c++)
+                array[c] = array[c+1];
+        }
+        else
+            printf("\n\nElement %d is not found in the array\n\n", element);
+    
+        printf("\n\nResultant array is: ");
+    
+        for(c = 0; c < n-1; c++) 
+            printf("%d  ",array[c]);
+    
+        return 0;
+    }
+
+70)find Largest and Smallest Element in an Array
+#include<stdio.h>
+
+int main()
+{
+    int a[50], size, i, big, small;
+
+    printf("\nEnter the size of the array: ");
+    scanf("%d", &size);
+
+    printf("\n\nEnter the %d elements of the array: \n\n", size);
+    for(i = 0; i < size; i++)
+    scanf("%d", &a[i]);
+
+    big = a[0];
+ 
+    for(i = 1; i < size; i++)
+    {
+        if(big < a[i])   
+        {
+            big = a[i]; 
+        }
+    }
+    printf("\n\nThe largest element is: %d", big);
+
+    small = a[0];   
+
+    for(i = 1; i < size; i++)
+    {
+        if(small>a[i])   
+        {
+            small = a[i];   
+        }
+    }
+    printf("\n\nThe smallest element is: %d", small);
+    return 0;
+}
+
+
+71)find Sum of N input Numbers using Array
+    #include<stdio.h>
+    
+    int main()
+    {
+        int n, sum = 0, c, array[100];
+    
+        printf("Enter the number of integers you want to add: ");
+        scanf("%d", &n);
+    
+        printf("\n\nEnter %d integers \n\n", n);
+    
+        for(c = 0; c < n; c++)
+        {
+            scanf("%d", &array[c]);
+            sum += array[c];    
+        }
+    
+        printf("\n\nSum = %d\n\n", sum);
+        return 0;
+    }
+
+
+ 72)
  
 
 
