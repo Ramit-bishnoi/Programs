@@ -1649,10 +1649,197 @@ int main()
     }
 
 73) Duplicate Element in an Array
+    #include <stdio.h>
+    
+    int insertion(int arr[], int n  )
+    {
+        for(int i = 0 ; i < n ; i ++)
+        {
+            int value = arr[i];
+            int prev = i ;//we can also take it as prev = i-1 but  i prefer prev= i
+            
+            while(prev>0 && arr[prev-1] > value)
+            {
+                arr[prev] = arr[prev - 1];
+                prev--;
+            }
+            if(prev != 1)
+            {
+                arr[prev] = value;
+            }
+            
+        }
+        
+    }
+    int dup(int arr[] , int n )
+    {
+        
+        for(int i =0 ; i < n ; i++)
+        {
+            if( arr[i] == arr[i-1] )
+            {
+                printf("\nduplicate element is %d\n" , arr[i]);
+            }
+        }
+    }
+    
+    
+    int main()
+    {
+        int n;
+        printf("enter size of array : ");
+        scanf("%d" , &n);
+        
+        int arr[n];
+        for(int i = 0 ; i < n ; i++)
+        {
+            printf("array elements %d :" , i+1 );
+            scanf("%d" , &arr[i]);
+           
+        }
+        printf(" Array is : ");
+        for(int i = 0 ; i < n ; i++)
+        {
+         
+            printf(" %d " , arr[i]);
+        }
+        insertion(arr , n);
+        dup(arr , n);
+    }
+    output :
+    	enter size of array : 5
+    	array elements 1 :5
+    	array elements 2 :4
+    	array elements 3 :7
+    	array elements 4 :3
+    	array elements 5 :7
+    	Array is :  5  4  7  3  7 
+    	duplicate element is 7
 
+74)Remove duplicates from the sorted array
+  #include <stdio.h>
+  int remove_duplicate(int arr[], int n)
+  {
+  
+    if (n == 0 || n == 1)
+      return n;
+  
+    int temp[n];
+  
+    int j = 0;
+    int i;
+    for (i = 0; i < n - 1; i++)
+      if (arr[i] != arr[i + 1])
+        temp[j++] = arr[i];
+    temp[j++] = arr[n - 1];
+  
+    for (i = 0; i < j; i++)
+      arr[i] = temp[i];
+  
+    return j;
+  }
+  
+  int main()
+  {
+    int n;
+    scanf("%d", &n);
+    int arr[n];
+    int i;
+    for (i = 0; i < n; i++)
+    {
+      scanf("%d", &arr[i]);
+    }
+    printf("\nArray Before Removing Duplicates: ");
+    for (i = 0; i < n; i++)
+      printf("%d ", arr[i]);
+  
+    n = remove_duplicate(arr, n);
+  
+    printf("\nArray After Removing Duplicates: ");
+    for (i = 0; i < n; i++)
+      printf("%d ", arr[i]);
+  
+    return 0;
+  }
 
+75)Remove duplicates from the unsorted array
+#include <stdio.h>
+int main()
+{
+  int n, count = 0;
+  scanf("%d", &n);
+  int arr[n], temp[n];
+  for (int i = 0; i < n; i++)
+  {
+    scanf("%d", &arr[i]);
+  }
 
+  printf("\nArray Before Removing Duplicates: ");
+  for (int i = 0; i < n; i++)
+    printf("%d ", arr[i]);
 
+  for (int i = 0; i < n; i++)
+  {
+    int j;
+    for (j = 0; j < count; j++)
+    {
+      if (arr[i] == temp[j])
+        break;
+    }
+    if (j == count)
+    {
+      temp[count] = arr[i];
+      count++;
+    }
+  }
+
+  printf("\nArray After  Removing Duplicates: ");
+  for (int i = 0; i < count; i++)
+    printf("%d ", temp[i]);
+
+  return 0;
+}
+
+76)check whether a two dimensional array is a Sparse Matrix
+     #include<stdio.h>
+    
+    int main()
+    {
+        int n, m, c, d, matrix[10][10];
+        intcounter = 0;
+        printf("\nEnter the number of rows and columns of the matrix \n\n");
+        scanf("%d%d",&m,&n);
+    
+        printf("\nEnter the %d elements of the matrix \n\n", m*n);
+        for(c = 0; c < m; c++)   
+        {
+            for(d = 0; d < n; d++)   
+            {
+                scanf("%d", &matrix[c][d]);
+                if(matrix[c][d] == 0)
+                counter++;  
+            }
+        }
+    
+        printf("\n\nThe entered matrix is: \n\n");
+        for(c = 0; c < m; c++)  
+        {
+            for(d = 0; d < n; d++)   
+            {
+                printf("%d\t", matrix[c][d]);
+            }
+        printf("\n");
+        }
+    
+        if(counter > (m*n)/2)
+            printf("\n\nThe entered matrix is a sparse matrix\n\n");
+        else
+            printf("\n\nThe entered matrix is not a sparse matrix\n\n");
+    
+        return 0;
+    }
+
+77) matrix to spiral code
 
 
       
