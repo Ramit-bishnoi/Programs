@@ -2199,13 +2199,530 @@ int main()
         }
         return rev;
     }
+88)traversal in linked list 
+#include<stdio.h>
+#include<stdlib.h>
+
+struct node {
+
+    int data ;
+    struct node * next ;
+
+};
+
+void traversal(struct node * ptr){
+    while(ptr != NULL){
+    printf("element %d \n" , ptr -> data);
+    ptr = ptr -> next ;
+    }
+}
+
+int main ()
+{
+    struct node * head , * second , * third ;
+    head = (struct node *)malloc(sizeof(struct node));
+    second = (struct node *)malloc(sizeof(struct node));
+    third = (struct node *)malloc(sizeof(struct node));
+
+    head -> data = 5 ;
+    head -> next = second ;
+
+    second -> data = 18 ;
+    second -> next = third ;
+
+    third -> data = 30 ;
+    third -> next = NULL;
+    
+    traversal(head);
+}
 
 
+89) insertion in linked list
+  #include<stdio.h>
+#include<stdlib.h>
+
+struct node {
+
+    int data ;
+    struct node * next ;
+
+};
+
+void traversal(struct node * ptr){
+    while(ptr != NULL){
+    printf("element %d \n" , ptr -> data);
+    ptr = ptr -> next ;
+    }
+}
+
+struct node * InsertionAtSt( struct node * head , int data )
+{
+    struct node * ptr = (struct node *)malloc(sizeof(struct node ));
+    ptr -> next = head ;
+    ptr -> data = data ;
+    return ptr ;
+}
+
+struct node * InsertionAtIndex( struct node * head , int data , int index)
+{
+    struct node * ptr =(struct node *)malloc(sizeof(struct node));
+    struct node * p = head ;
+    int i = 0 ;
+
+    while( i != index -1)
+    {
+        p = p->next ;
+        i++  ;
+    }
+    ptr -> data = data ;
+    ptr -> next = p -> next ;
+    p -> next = ptr ;
+    return head;
+}
+
+struct node * InsertionAtEnd( struct node * head , int data )
+{
+    struct node * ptr = (struct node *)malloc(sizeof(struct node ));
+    ptr -> data = data ;
+    struct node * p = head ;
+    while (p -> next != NULL)
+    {
+        p = p ->next  ;
+
+    }
+    p -> next = ptr ;
+    ptr -> next =  NULL;
+    return head ;
+
+}
+
+struct node * InsertionAfNode(struct node * head , struct node * prevNode , int data){
+    struct node * ptr = (struct node *)malloc(sizeof(struct node));
+    ptr -> data = data ;
+
+    ptr -> next = prevNode -> next ;
+    prevNode -> next = ptr ;
+
+    return head ;
+}
 
 
+int main ()
+{
+    struct node * head , * second , * third , * fourth;
+    head = (struct node *)malloc(sizeof(struct node));
+    second = (struct node *)malloc(sizeof(struct node));
+    third = (struct node *)malloc(sizeof(struct node));
+    fourth = (struct node *)malloc(sizeof(struct node));
 
-       
+    head -> data = 5 ;
+    head -> next = second ;
 
+    second -> data = 18 ;
+    second -> next = third ;
+
+    third -> data = 30 ;
+    third -> next = fourth;
+    
+    fourth -> data=  40 ;
+    fourth -> next =  NULL ;
+    
+    printf("Before insertion \n");
+    traversal(head);
+    head = InsertionAfNode(head , second , 44);
+    printf("after insetion \n");
+    traversal(head);
+    
+
+}
+
+90) deletion  in linked list
+#include <stdio.h>
+#include <stdlib.h>
+
+struct node {
+
+    int data ;
+    struct node * next ;
+
+};
+
+int traversal(struct node * ptr ){
+
+    while (ptr  != NULL )
+    {
+        printf("%d\n" , ptr->data);
+        ptr = ptr -> next  ;
+    }
+}
+struct node * deletionAtFirst(struct node * head ){
+    struct node * ptr = head ;
+    head = head -> next ;
+    free(ptr);
+    return head ;
+}
+struct node * deletionAtIndex(struct node * head , int index)
+{
+    struct node * p = head ;
+    struct node * q = head -> next  ;
+    for ( int i = 0 ; i = index - 1 ; i++)
+    {
+        p = p -> next ;
+        q = q -> next ;
+    }
+    p -> next = q -> next ;
+    free(q);
+    return head ;
+    
+}
+
+int main ()
+{
+    struct node * head , * second , * third , * fourth  ,  * fifth;
+    head = (struct node *)malloc(sizeof(struct node ));
+    second = (struct node *)malloc(sizeof(struct node ));
+    third = (struct node *)malloc(sizeof(struct node ));
+    fourth = (struct node *)malloc(sizeof(struct node ));
+    fifth = (struct node *)malloc(sizeof(struct node ));
+
+    head -> data = 12 ;
+    head -> next = second ;
+
+    second -> data = 34 ;
+    second -> next = third ;
+
+    third -> data = 49 ;
+    third -> next = fourth ;
+
+    fourth -> data = 88 ;
+    fourth -> next = fifth;
+
+    fifth -> data = 90 ;
+    fifth -> next = NULL;
+    
+    //traversal(head);
+    head = deletionAtIndex(head , 3);
+    traversal(head);
+}    
+91) arrray stack 
+#include <stdio.h>
+#include <stdlib.h>
+#define MAX 10
+
+struct stack {
+  
+    int top ;
+    int *arr ;
+};
+
+int is_full(struct stack * ptr )
+{
+    if(ptr->top >= MAX - 1)
+    {
+        return 1 ;
+    }
+    else
+    {
+        return 0 ;
+    }
+}
+
+int is_empty(struct stack * ptr)
+{
+    if(ptr->top == -1)
+    {
+        return 1;
+    }
+    else
+    {
+        return 0 ;
+    }
+}
+
+void push ( struct stack *ptr , int element)
+{
+    if (is_full(ptr))
+    {
+        printf("stack overflow\n");
+    }
+    else
+    {
+        ptr->top++;
+        ptr->arr[ptr->top]=element ;
+        
+    }
+}
+
+int pop(struct stack * ptr )
+{
+    if (is_empty(ptr))
+    {
+        printf("stack underflow\n");
+        return -1 ;
+    }
+    else
+    {
+        int val = ptr->arr[ptr->top];
+        ptr->top-- ;
+        return val ;
+    }
+    
+}
+
+int peek(struct stack * s  , int i )
+{
+    if(s->top-i+1 < 0)
+    {
+        printf("Not A Valid Postion");
+        return -1 ;
+    }
+    else{
+
+        return s->arr[s->top-i+1] ;
+
+    }
+}
+
+int main() {
+    
+    struct stack * s = (struct stack *)malloc(sizeof(struct stack));
+    
+    s->top = -1 ; 
+    s->arr = (int *)malloc((MAX) * sizeof(int)) ;
+    
+
+    push(s , 11);
+    push(s , 12);
+    push(s , 13);
+    push(s , 10);
+    
+    
+    
+
+    //printf("poped out  element is %d\n" ,pop(s));
+    //printf("poped out  element is %d\n" ,pop(s));
+    //printf("poped out  element is %d\n" ,pop(s));
+
+    for(int j = 1 ; j <= s->top +1 ; j++ )
+    {
+        printf("The positon of %d is %d\n" , j , peek(s ,  j));
+    }
+    return 0;
+}
+92)stack game
+#include <stdio.h>
+#include <stdlib.h>
+#define MAX 25 
+
+struct stack {
+    int top ;
+    int arr[52] ;
+
+};
+
+void push(struct stack * s , int val ){
+    if(s->top >= MAX - 1)
+    {
+        printf("stack overflow !");
+    }
+    else 
+    {
+        s->top++;
+        s->arr[s->top]=val;
+
+    }
+}
+
+void pop(struct stack * s)
+{
+    if(s->top == -1)
+    {
+        printf("you won! ");
+    }
+    else{
+        int val = s->arr[s->top];
+        s->top--;
+        printf("%d",val);
+    }
+}
+
+int main ()
+{
+    struct stack * s = (struct stack *)malloc(sizeof(struct stack));
+    //s->top = -1;
+    //s->arr = (int *)malloc((MAX) * sizeof(int));
+    int a , b;
+    for(int i=0 ; i <= MAX ;  i++)
+    {   
+        printf("player 1 ");
+        scanf("%d", &a);
+        
+        
+        if(a == b )
+        {
+            while(s->top != -1)
+            {
+                pop(s);
+            }
+            return 0 ;
+        }
+        printf("player 2 ");
+        scanf("%d" ,&b);
+
+        if(a == b)
+        {
+            while(s->top != -1)
+            {
+                pop(s);
+                
+            }
+            return 0 ;
+        }
+        
+        else{
+            push(s , a);
+            push(s , b);
+        }
+    }
+
+
+}
+
+93)tree basic code 
+  #include<stdio.h>
+  #include<stdlib.h>
+  
+  struct node {
+      int data ;
+      struct node * left , * right ;
+  
+  };
+  
+  struct node * create (int data)
+  {
+      struct node * n =(struct node * )malloc (sizeof(struct node));
+       n->data = data ;
+       n->left = NULL ;
+       n->right = NULL ;
+  
+       return n ;
+  }
+  
+  struct node * preorder (struct node * root)
+  {
+      if(root != NULL)
+      {
+          printf("%d  " , root->data);
+          preorder(root->left);
+          preorder(root->right);
+      }
+  }
+  
+  struct node * postorder (struct node * root)
+  {
+      
+      if (root != NULL)
+      {
+          postorder(root->left);
+          postorder(root->right);
+          printf("%d  " , root->data);
+      }
+  }
+  
+  struct node *  inorder(struct node * root)
+  {
+      
+      if(root != NULL)
+      {
+          inorder(root->left);
+          printf("%d  " , root->data);
+          inorder(root->right);
+      }
+  }
+  
+  int main ()
+  {
+      struct node * p = create(4);
+      struct node * p1 =create(5);
+      struct node * p2 = create(6);
+      struct node * p3 = create(7);
+      struct node * p4 = create(8);
+      struct node * p5 = create(9);
+      struct node * p6 = create(10);
+      struct node * p7 = create(11);
+      
+      /*      p
+             / \
+            p1   p2
+            / \  /\
+           p3 p4 p5 p6   */
+  
+      p->left = p1 ;
+      p->right = p2 ;
+      p1->left = p3 ;
+      p1->right = p4 ;
+      p2->left = p5 ;
+      p2->right = p6 ;
+      p6->left = p7 ;
+      
+      preorder(p);
+      printf("\n");
+      postorder(p);
+      printf("\n");
+      inorder(p);
+  
+  }
+94)linear search 
+    #include <stdio.h>
+    
+    int linearsearch(int arr[] , int element , int size){
+        for(int i = 0 ; i <= size ; i++)
+        {
+            if(arr[i] == element)
+            {
+                return i ;
+            }
+    
+        }
+        
+    
+    }
+    
+    int binarysearch(int arr[] , int element , int size){
+        int low , mid , high  ;
+        low = 0 ;
+        high = size-1 ;
+        while(low <= high)
+        {    
+            mid = (low + high)/2 ;
+        
+            if(arr[mid] == element)
+            {return mid ;}
+            
+            if(arr[mid < element])
+            { low = mid +1 ; }
+    
+            else
+            { high = mid -1 ;}
+    
+        }
+        return -1 ;
+    }
+    
+    int main()
+    {
+        int arr[10] = {2 ,3 ,5 , 6 ,77 ,88 ,89 , 100};
+        int n;
+        int size = sizeof(arr)/sizeof(int);
+        printf("element you want to find ?");
+        scanf("%d" , &n);
+        int index = linearsearch( arr , n   , size);
+        printf("element %d found at index %d\n" , n , index);
+        int binary = binarysearch( arr , n , size) ;
+        printf("element %d is found at index %d" ,n , binary );
+    }
+
+95)
 
 
 
