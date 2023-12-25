@@ -114,3 +114,44 @@ int coverPoints(int* A, int n1, int* B, int n2) {
     return count;
 
 }
+.
+.
+.
+.
+.
+min lights to active
+int solve(int* A, int n1, int B) {
+    int left = 0 , count = 0;
+    int nxtlight ;
+    //int A[]={ 0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 0 };
+    //int n1 = sizeof(A)/sizeof(A[0]);
+    //int B = 12;
+    int end = left + B-1 ;    
+    while(left < n1 -1)
+    {
+        while(left < end )
+        {
+            if(A[end] ==1)
+            {
+                nxtlight = end ;
+                break;
+            }
+            else 
+            {
+                end--;
+            }
+            
+        }
+        if(left == end)
+        {
+            return -1;
+        }
+
+        count++;
+        left = nxtlight + B - 1 + 1;
+        
+    }
+    //printf("min lights %d" , count);
+
+    return count;
+}
