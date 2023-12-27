@@ -155,3 +155,35 @@ int solve(int* A, int n1, int B) {
 
     return count;
 }
+.
+.
+.
+.
+//add one 
+#include <stdio.h>
+
+int main() {
+    int A[]= {1 , 2 , 3 , 4 };
+    int n = 4;
+    int sum = 0 , i ;
+    for(i = 0 ; i < n ; i++)
+    {
+        sum = sum*10 + A[i];
+        
+    }
+    sum = sum + 1;
+    int B[] = { };
+    for(i = n-1 ; i > 0 ; i--)
+    {
+        B[i] = sum % 10 ;
+        sum = sum / 10;
+        
+    }
+    for(i = 0 ; i < n ; i++)
+    {
+        printf("%d" , B[i]);
+
+    }
+
+    return 0;
+}
