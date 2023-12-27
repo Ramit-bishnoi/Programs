@@ -187,3 +187,39 @@ int main() {
 
     return 0;
 }
+.
+.
+.
+.
+.
+.
+.
+// maximum absolute difference 
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int A[] = {1 , 3 , -1 };
+    int n = 3 ; 
+    int x , prev = 0 ;
+    for (int i = 1 ; i <=n ; i++)
+    {
+        for(int j = 1 ; j <= n ; j++)
+        {
+            x = abs(A[i-1] - A[j-1]) + abs(i-j);
+            if(x > prev)
+            {
+                prev = x ;
+            }
+        }
+    }
+    printf("max = %d" , prev);
+    return 0;
+}
+.
+.
+.
+.
+.
+.
+//
