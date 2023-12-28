@@ -222,4 +222,55 @@ int main() {
 .
 .
 .
-//
+//partition 
+int findNext (int targetSum, int *B, int size, int start, int direction) {
+    int sum = 0;
+    int i;
+    if (direction == 1) {
+        for (i=start; i<size; i++) {
+            sum += B[i];
+            if (sum == targetSum) {
+                return i;
+            }
+        }
+    } else {
+        for (i=start; i>=0; i--) {
+            sum += B[i];
+            if (sum == targetSum) {
+                return i;
+            }
+        }
+    }
+    return -1;
+}
+int solve(int n, int* B, int n2) {
+    int p, q, r;
+    int totalSum=0;
+    int count=0;
+    int i; 
+    for (i=0; i<n; i++) {
+        totalSum += B[i];
+    }
+    if (totalSum % 3 != 0) {
+        return 0;
+    }
+    
+    int targetSum = totalSum/3;
+    p = findNext(targetSum, B, n, 0, 1);
+    r = findNext(targetSum, B, n, n-1, -1);
+    
+    while (p<r) {
+        q = findNext(targetSum, B, n, p+1, 1);
+        if ((p==-1) || (r==-1) || (q==-1)) {
+            break;
+        }
+        
+        while ((q < r)  && (q!=-1)) {
+            count ++;
+            q = findNext(0, B, n, q+1, 1);
+        }
+
+        p = findNext(0, B, n, p+1, 1);
+    }
+    return count;
+}
