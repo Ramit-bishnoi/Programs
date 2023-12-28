@@ -159,7 +159,7 @@ int solve(int* A, int n1, int B) {
 .
 .
 .
-//add one 
+//add one (brute  force)
 #include <stdio.h>
 
 int main() {
@@ -179,13 +179,51 @@ int main() {
         sum = sum / 10;
         
     }
-    for(i = 0 ; i < n ; i++)
+    for(i = 0 ; i <= n1 ; i++)
     {
-        printf("%d" , B[i]);
+        if(B[i]==0)
+        {
+            count++;
+        }
+        else 
+        {
+            break;
+        }
 
     }
+    *len1 = n1 + 1 - count ;
 
-    return 0;
+    return B+count;
+}
+//add 1 in array 
+int* plusOne(int* A, int n1, int *len1) {
+    //int A[]= {1 , 2 , 3 , 4 };
+    //int n = 4;
+    int count = 0;
+    int carry = 1, i;
+    int* B = (int*) malloc ((n1+1) * sizeof(int));
+         
+    for(i = n1 ; i > 0 ; i--)
+    {
+        B[i] = (A[i-1]+carry)%10;
+        carry = (A[i-1]+carry)/10;
+    }
+    B[0] = carry;
+    for(i = 0 ; i <= n1 ; i++)
+    {
+        if(B[i]==0)
+        {
+            count++;
+        }
+        else 
+        {
+            break;
+        }
+
+    }
+    *len1 = n1 + 1 - count ;
+
+    return B+count;
 }
 .
 .
@@ -195,6 +233,7 @@ int main() {
 .
 .
 // maximum absolute difference 
+brute force 
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -215,6 +254,20 @@ int main() {
     }
     printf("max = %d" , prev);
     return 0;
+}
+//with less time complexity
+int maxArr(int* arr, int n1) {
+    int max1 = INT_MIN, min1 = INT_MAX;
+    int max2 = INT_MIN, min2 = INT_MAX;
+    int i ;
+    for ( i = 0; i < n1; i++) {
+        max1 = (arr[i] + i) > max1 ? (arr[i] + i) : max1;
+        min1 = (arr[i] + i) < min1 ? (arr[i] + i) : min1;
+        max2 = (arr[i] - i) > max2 ? (arr[i] - i) : max2;
+        min2 = (arr[i] - i) < min2 ? (arr[i] - i) : min2;
+    }
+    return (max1 - min1) > (max2 - min2) ? (max1 - min1) : (max2 - min2);
+
 }
 .
 .
