@@ -327,3 +327,46 @@ int solve(int n, int* B, int n2) {
     }
     return count;
 }
+.
+.
+.
+.
+//perfect peak in array 
+#include <stdio.h
+
+int perfectPeak(int * A , int n1)
+{
+    int i , j ;
+    int *B = (int *)malloc(() * sizeof(int));
+    int *C = (int *)malloc(() * sizeof(int));
+    
+    
+    for(i = 0 ; i < n1 ; i++)
+    {
+        if(B[i] < mid )
+        {
+            if(C[i] > mid)
+            {
+                return 1 ;
+            }
+            else
+            {
+                C[n1] = mid;
+                mid = mid - 1 ;
+            }
+            
+        }
+        else
+        {
+            B[n1] = mid ;
+            mid = mid + 1 ;
+        }
+    }
+}
+
+int main() {
+    // Write C code here
+    printf("Hello world");
+
+    return 0;
+}
